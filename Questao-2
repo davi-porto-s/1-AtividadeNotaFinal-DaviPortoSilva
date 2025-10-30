@@ -4,13 +4,20 @@
 <title>Calculadora Simples</title>
 <style>
 body {
-    margin-top: 10%;
-    margin-left: 40%;
+    background-color: #cacaca;
+    margin-top: 20%;
+    margin-left: 35%;
     display:inline-block;
-    border: 1px solid black;
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
+}
+.calculadora {
+    box-shadow: 5px 5px 15px rgba(45, 45, 45, 0.3);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff; 
 }
 input, button {
     display: block;
@@ -21,14 +28,14 @@ input, button {
 </head>
 <body>
 
-<h1>Calculadora</h1>
-
-<input type="number" id="numero1" placeholder="Primeiro número">
-<input type="number" id="numero2" placeholder="Segundo número">
+<div class="calculadora">
+    <h1><i></i>Calculadora</h1>
+    <input type="number" id="numero1" placeholder="Primeiro número">
+    <input type="number" id="numero2" placeholder="Segundo número">
 
 <button onclick="somar()">Somar</button>
 
-<p style="display:inline-block; border: 1px solid gray;" id="resultado">Resultado</p>
+<p style="padding:flex; border: 1px solid gray;" id="resultado"><br><br></p>
 
 <script>
 function somar() {
