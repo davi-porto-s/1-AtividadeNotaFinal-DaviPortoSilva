@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>Calculadora Simples</title>
+<style>
+body {
+    margin-top: 10%;
+    margin-left: 40%;
+    display:inline-block;
+    border: 1px solid black;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+input, button {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+}
+</style>
+</head>
+<body>
+
+<h1>Calculadora</h1>
+
+<input type="number" id="numero1" placeholder="Primeiro número">
+<input type="number" id="numero2" placeholder="Segundo número">
+
+<button onclick="somar()">Somar</button>
+
+<p style="display:inline-block; border: 1px solid gray;" id="resultado">Resultado</p>
+
+<script>
+function somar() {
+    var n1 = parseFloat(document.getElementById('numero1').value) || 0;
+    var n2 = parseFloat(document.getElementById('numero2').value) || 0;
+    document.getElementById('resultado').innerText = n1 + n2;
+}
+</script>
+
+</body>
+</html>
