@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gerador de Cor de Fundo Aleatório</title>
+</head>
+<body style="margin-top: 40%; margin-left: 40%; background-color: lightyellow; font-family: Arial;">
+<button style="padding: 10px 20px; font-size: 16px; cursor: pointer;" 
+onclick="mudarCor()">Mudar Cor</button>
+
+<script>
+const cores = ['blue', 'lightblue', 'salmon', 'lightyellow','lightred','gray', 'limegreen',
+'green', 'purple', 'pink', 'Magenta','black', 'brown','yellow','Orange','Silver','Navy','Olive',
+'Fuchsia','Azure','MediumAquamarine','LightSkyBlue','PaleGoldenrod','Beige'];
+function mudarCor() {
+  document.body.style.backgroundColor = cores[Math.floor(Math.random() * cores.length)];
+}
+</script>
+</body>
+</html>
