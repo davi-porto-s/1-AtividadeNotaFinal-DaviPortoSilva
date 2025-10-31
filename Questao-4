@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora de IMC</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: linear-gradient(to right, rgb(20, 54, 100), rgb(50, 100, 150));
+                color: rgb(255, 255, 255);
+                text-align: center;
+                
+            }
+            .container {
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: 2px solid #ccc;
+                border-radius: 5px;
+                background-color: #00000031;
+                font-family: Helvetica, sans-serif;
+                color: rgb(255, 255, 255);
+                width: 400px;
+                min-height: 300px;
+            }
+            button {
+                
+                margin-top: 10px;
+                padding: 10px 20px;
+                background-color: #4caf54;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: larger;
+                font-weight: bold;    
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+</head>
+<body>
+        <h1>Calculadora de IMC</h1>
+        <div class="container">
+            <div class="primeiro-passo">
+                <h2>Insira suas medidas abaixo:</h2>
+                <p id="mensagem-erro" style="color: #ff4444; font-weight: bold; margin-top: 10px;"></p>
+            <label for="peso">Digite seu peso:</label>
+            <input type="number" id="peso" placeholder="kg" step="0.1">
+            <br><br>
+            <label for="altura">Digite sua altura:</label>
+            <input type="number" id="altura" placeholder="metros" step="0.01">
+            <br><br>
+
+            <br>
+            <button>Calcular IMC</button>
+        </div>
+        <div class="segundo-passo">
+            <h3>Resultado:</h3>
+            <p id="resultado"></p>
+
+</body>
+<script>
+           document.querySelector("button").addEventListener("click", function() {
+           document.getElementById('mensagem-erro').innerText = "";
+           document.getElementById('resultado').innerText = "";
+        let peso = parseFloat(document.getElementById('peso').value);
+        let altura = parseFloat(document.getElementById('altura').value);
+        if (isNaN(peso) || isNaN(altura) || altura <= 0) {
+        document.getElementById('mensagem-erro').innerText = "Por favor, insira valores válidos";
+        return;
+        }
+        let imc = peso / (altura * altura);
+        imc = imc.toFixed(2);
+        let classificacao = "";
+        if (imc < 18.5) {
+            classificacao = "Abaixo do peso";
+        } else if (imc < 24.9) {
+            classificacao = "Peso saudável";
+        } else if (imc < 29.9) {
+            classificacao = "Sobrepeso";
+        } else {
+            classificacao = "Obesidade";
+        }
+        document.getElementById('resultado').innerText = "Seu IMC é " + imc + " (" + classificacao + ")";
+    });
+</script>
+</html>
